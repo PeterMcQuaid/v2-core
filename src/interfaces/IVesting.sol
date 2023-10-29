@@ -25,6 +25,15 @@ import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.s
  */
 interface IVesting {
 
+    /// @notice Emitted when new vesting stream created
+    event VestingStreamCreated(address indexed streamOwner, uint256 streamId);
+
+    /// @notice Emitted when vesting stream owner changed
+    event StreamOwnerChanged(address indexed oldOwner, address indexed newOwner, uint256 streamId);
+
+    /// @notice Emitted when vesting stream cancelled
+    event StreamCanceled(address indexed owner, uint256 streamId);
+
     // EXTERNAL FUNCTIONS
 
     /// @notice Creates a vesting stream using Sablier V2 Lockup contract
